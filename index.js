@@ -21,3 +21,5 @@ app.get("/impressum", async function (req, res) {
 app.listen(3010, () => {
   console.log(`Example app listening at http://localhost:3010`);
 });
+
+// TEST
