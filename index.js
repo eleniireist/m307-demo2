@@ -13,6 +13,12 @@ app.get("/", async function (req, res) {
   res.render("start", {});
 });
 
+/* Ordner */
+app.get("/ordner", async function (req, res) {
+  res.render("ordner", {});
+});
+
+/* Impressum */
 app.get("/impressum", async function (req, res) {
   res.render("impressum", {});
 });

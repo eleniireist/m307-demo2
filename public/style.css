@@ -24,3 +24,14 @@ h1,
 p {
   color: white;
 }
+.div_img_home {
+  text-align: center;
+}
+.img_home {
+  max-width: 250px;
+  padding: 15px;
+}
+
+.hr_home {
+  color: red;
+}
