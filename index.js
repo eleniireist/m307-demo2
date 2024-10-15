@@ -1,15 +1,16 @@
 import { createApp } from "./config.js";
 
 const app = createApp({
-  user: "autumn_star_7622",
-  host: "168.119.168.41",
-  database: "demo",
-  password: "uaioysdfjoysfdf",
-  port: 18324,
+  user: "blue_violet_3481",
+  host: "bbz.cloud",
+  database: "blue_violet_3481",
+  password: "9fd698afb461ecd1a7c2b97f293be543",
+  port: 30211,
 });
 
 /* Startseite */
 app.get("/", async function (req, res) {
+  const posts = await app.locals.pool.query("select * from posts");
   res.render("start", {});
 });
 
@@ -27,5 +28,3 @@ app.get("/impressum", async function (req, res) {
 app.listen(3010, () => {
   console.log(`Example app listening at http://localhost:3010`);
 });
-
-// TEST
