@@ -8,10 +8,12 @@ const app = createApp({
   port: 30211,
 });
 
-/* Startseite */
+/* Startseite (posts) */
 app.get("/", async function (req, res) {
-  const posts = await app.locals.pool.query("select * from posts");
-  res.render("start", {});
+  const posts = await app.locals.pool.query(
+    "select *, (select count(*) from likes where post_id = posts.id) as like_count, (select count(*) from comments where post_id = posts.id) as comment_count from posts"
+  );
+  res.render("start", { posts: posts.rows });
 });
 
 /* Ordner */

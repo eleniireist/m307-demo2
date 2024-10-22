@@ -1,11 +1,21 @@
-
 <!-- mein bild-->
 <div class="div_img_home"><img class="img_home" src="assets/img/cat.jpg" alt=""></div>
 
+<!--Posts Startseite-->
+{{#posts}}
+    <div class="post">
+         <h3>{{titel}}</h3>
+         <p>{{text}}</p>
+
+         <p>Likes; {{like_count}}</p>
+         <p>Kommentare: {{comment_count}}</p>
+
+     </div>
+{{/posts}}
+
+
 <br> <br>
-<!-- bilder der anderen personen-->
-<div class="div_img_home"><img class="img_home" src="assets/img/cat.jpg" alt=""></div>
-<div class="div_img_home"><img class="img_home" src="assets/img/cat.jpg" alt=""></div>
+
 
 
 
