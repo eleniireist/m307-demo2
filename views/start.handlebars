@@ -1,21 +1,37 @@
 <!-- mein bild-->
-<div class="div_img_home"><img class="img_home" src="assets/img/cat.jpg" alt=""></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="div-img-unser"><img class="img-unser" src="assets/img/cat.jpg" alt=""></div>
 
 <!--Posts Startseite-->
 {{#posts}}
     <div class="post">
          <h3>{{titel}}</h3>
          <p>{{text}}</p>
-         <img src="/uploads/{{bild}}">
+         <div class="div-img-andere">  <img class="img-andere" src="/uploads/{{bild}}"></div>
 
          <p>Likes; {{like_count}}</p>
          <p>Kommentare: {{comment_count}}</p>
-
+         
+<!--Likebutton-->
+<form action="/like/{{id}}" enctype="multipart/form-data" method="POST">
+ <p>{{likes.count}}</p> <input type="image" src="/assets/img/like.png">
+  </form>
      </div>
 {{/posts}}
 
 
-<br> <br>
+<!--Kommentare-->
+<form action="/comments/{{id}}" method="POST">
+    <input type="text" name="text" />
+    <input class="comments" type="submit" value="liken" />
+  </form>
 
 
 
@@ -23,5 +39,8 @@
 
 
 
+
+
+<!--Kontaktformular
 {{> contactform}}
-
+-->

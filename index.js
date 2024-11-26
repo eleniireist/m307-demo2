@@ -65,3 +65,29 @@ app.get("/new_post", async function (req, res) {
 app.listen(3010, () => {
   console.log(`Example app listening at http://localhost:3010`);
 });
+
+/*Likes*/
+app.post("/like/:id", async function (req, res) {
+  if (!req.session.userid) {
+    res.redirect("/login");
+    return;
+  }
+  await app.locals.pool.query(
+    "INSERT INTO likes (post_id, user_id) VALUES ($1, $2)",
+    [req.params.id, req.session.userid]
+  );
+  res.redirect("/");
+});
+
+app.post("/comments/:id", async function (req, res) {
+  if (!req.session.userid) {
+    res.redirect("/login");
+    return;
+  }
+  console.log(req.body);
+  await app.locals.pool.query(
+    "INSERT INTO comments (post_id, user_id, text) VALUES ($1, $2, $3)",
+    [req.params.id, req.session.userid, req.body.text]
+  );
+  res.redirect("/");
+});
