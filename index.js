@@ -41,6 +41,10 @@ app.get("/new_post", async function (req, res) {
 });
 
 app.post("/create_post", upload.single("bild"), async function (req, res) {
+  if (!req.session.userid) {
+    res.redirect("/login");
+    return;
+  }
   await app.locals.pool.query(
     "INSERT INTO posts (titel, text, bild, user_id) VALUES ($1, $2, $3, $4)",
     [req.body.titel, req.body.text, req.file.filename, req.session.userid]
@@ -79,6 +83,7 @@ app.post("/like/:id", async function (req, res) {
   res.redirect("/");
 });
 
+/*kommentare*/
 app.post("/comments/:id", async function (req, res) {
   if (!req.session.userid) {
     res.redirect("/login");
@@ -90,4 +95,11 @@ app.post("/comments/:id", async function (req, res) {
     [req.params.id, req.session.userid, req.body.text]
   );
   res.redirect("/");
+});
+
+app.get("/podium", async function (req, res) {
+  const users = await app.locals.pool.query(
+    "SELECT users.id AS user_id, users.username, COUNT(likes.id) AS total_likes FROM users JOIN posts ON users.id = posts.user_id JOIN likes ON posts.id = likes.post_id GROUP BY users.id, users.username ORDER BY total_likes DESC;"
+  );
+  res.render("podium", { users: users.rows });
 });

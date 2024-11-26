@@ -12,17 +12,21 @@
 <!--Posts Startseite-->
 {{#posts}}
     <div class="post">
+      <div class="post-beschreibung">
          <h3>{{titel}}</h3>
          <p>{{text}}</p>
+        </div>
          <div class="div-img-andere">  <img class="img-andere" src="/uploads/{{bild}}"></div>
-
-         <p>Likes; {{like_count}}</p>
-         <p>Kommentare: {{comment_count}}</p>
+         <div class="likes-container">
+         <p>Likes: {{like_count}}</p>
          
+         <p>Kommentare: {{comment_count}}</p>
+       
 <!--Likebutton-->
 <form action="/like/{{id}}" enctype="multipart/form-data" method="POST">
- <p>{{likes.count}}</p> <input type="image" src="/assets/img/like.png">
-  </form>
+ <p>{{likes.count}}</p> <input class="like-button" type="image" src="/assets/img/like.png">
+  </form> 
+</div> 
      </div>
 {{/posts}}
 
@@ -30,7 +34,7 @@
 <!--Kommentare-->
 <form action="/comments/{{id}}" method="POST">
     <input type="text" name="text" />
-    <input class="comments" type="submit" value="liken" />
+    <input class="comments" type="submit" value="kommentieren" />
   </form>
 
 
