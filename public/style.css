@@ -5,13 +5,22 @@
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
-.background {
+body {
   background-color: #000;
 }
 
 a {
   color: #fff;
   text-decoration: none;
+}
+
+.a-impressum {
+  color: #000;
+}
+
+footer {
+  background-color: #fff;
+  text-align: center;
 }
 p {
   color: #fff;
@@ -80,12 +89,12 @@ header {
 /*home*/
 
 .likes-container {
-  margin-left: 33%;
+  margin-left: 35.5%;
   margin-bottom: 50px;
 }
 
 .post-beschreibung {
-  margin-left: 33%;
+  margin-left: 35.5%;
 }
 .div-img-andere {
   text-align: center;
@@ -107,9 +116,14 @@ header {
 
 .like-button {
   max-width: 30px;
-  margin-right: 33%;
+  margin-right: 35.5%;
 }
 /*anmelden*/
 .register-class {
   text-decoration: underline;
+}
+
+/*upload*/
+.container-upload {
+  margin-left: 0%;
 }
